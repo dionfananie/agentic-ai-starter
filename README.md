@@ -102,7 +102,14 @@ npx wrangler versions deploy
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This project uses [Halaska UI](https://ui.halaska.com) for all application UI. The kit is vendored at `src/halaska-kit.jsx`, with TypeScript types in `src/halaska-kit.d.ts`.
+
+- Import named components: `import { Button, Card, usePal, tokens } from "../../src/halaska-kit";`
+- `app/root.tsx` wraps the app in `<ThemeProvider theme="dark">`.
+- Use `usePal()` for colors and `tokens` / `rad` for spacing, type, and radii. Do not add hardcoded colors or one-off styles to new UI.
+- Prefer the kit's AI patterns (`ThinkingTracePattern`, `PlanPreviewPattern`, `AgentStatusPattern`, and so on) for agent interactions.
+
+Tailwind CSS is still present for the base reset. New UI should use Halaska components rather than Tailwind classes.
 
 ---
 
